@@ -410,8 +410,13 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 如果大家觉得此文档对大家帮助很大的话，可以请作者喝杯奶茶或者加个鸡腿。
 
-![微信收款](./img/wxpay.jpg)
+<div>   
+	<img src="./img/wxpay.jpg" width="49%" >
+    <img src="./img/alipay.jpg" width="49%" >
+</div>
 
-![微信收款](./img/alipay.jpg)
+ </div>
+
+
 
 <!-- #end -->
