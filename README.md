@@ -2,7 +2,7 @@
 
 [GitHub](https://gitee.com/zhangdinghua/PythonClub) | [Gitee](https://gitee.com/zhangdinghua/PythonClub)
 
-> - 此文档目前是本人学习笔试，欢迎各位一起使用，有兴趣的小伙伴可以与我一起维护。
+> - 此文档目前是本人学习笔记，欢迎各位一起使用，有兴趣的小伙伴可以与我一起维护。
 > - **求个Star**：如果觉得 PythonClub 的内容对你有帮助的话，还请点个免费的 Star，这是对我最大的鼓励，感谢各位一起同行，共勉！Github 地址：[https://gitee.com/zhangdinghua/PythonClub](https://gitee.com/zhangdinghua/PythonClub) 。
 
 ## 项目相关
@@ -11,9 +11,13 @@
 - [贡献指南](./docs/javaguide/contribution-guideline.md)
 - [常见问题](./docs/javaguide/faq.md)
 
-## Java
+## Python
 
 ### 基础
+
+* [基础笔记](./note/basis.md)
+
+
 
 **知识点/面试题总结** : (必看:+1: )：
 
@@ -161,254 +165,13 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8 ](https://docs.oracle
 
 另外，[GeeksforGeeks](https://www.geeksforgeeks.org/fundamentals-of-algorithms/) 这个网站总结了常见的算法 ，比较全面系统。
 
-## 数据库
 
-### 基础
 
-- [数据库基础知识总结](./docs/database/basis.md)
-- [NoSQL 基础知识总结](./docs/database/nosql.md)
-- [字符集详解](./docs/database/character-set.md)
-- SQL :
-  - [SQL 语法基础知识总结](./docs/database/sql/sql-syntax-summary.md)
-  - [SQL 常见面试题总结](./docs/database/sql/sql-questions-01.md)
 
-### MySQL
 
-**知识点/面试题总结：**
+##  捐赠
 
-- **[MySQL 常见知识点&面试题总结](./docs/database/mysql/mysql-questions-01.md)** (必看 :+1:)
-- [MySQL 高性能优化规范建议总结](./docs/database/mysql/mysql-high-performance-optimization-specification-recommendations.md)
-
-**重要知识点：**
-
-- [MySQL 索引详解](./docs/database/mysql/mysql-index.md)
-- [MySQL 事务隔离级别图文详解)](./docs/database/mysql/transaction-isolation-level.md)
-- [MySQL 三大日志(binlog、redo log 和 undo log)详解](./docs/database/mysql/mysql-logs.md)
-- [InnoDB 存储引擎对 MVCC 的实现](./docs/database/mysql/innodb-implementation-of-mvcc.md)
-- [SQL 语句在 MySQL 中的执行过程](./docs/database/mysql/how-sql-executed-in-mysql.md)
-- [MySQL 查询缓存详解](./docs/database/mysql/mysql-query-cache.md)
-- [MySQL 执行计划分析](./docs/database/mysql/mysql-query-execution-plan.md)
-- [MySQL 自增主键一定是连续的吗](./docs/database/mysql/mysql-auto-increment-primary-key-continuous.md)
-- [MySQL 时间类型数据存储建议](./docs/database/mysql/some-thoughts-on-database-storage-time.md)
-- [MySQL 隐式转换造成索引失效](./docs/database/mysql/index-invalidation-caused-by-implicit-conversion.md)
-
-### Redis
-
-**知识点/面试题总结** : (必看:+1: )：
-
-- [Redis 常见知识点&面试题总结(上)](./docs/database/redis/redis-questions-01.md)
-- [Redis 常见知识点&面试题总结(下)](./docs/database/redis/redis-questions-02.md)
-
-**重要知识点：**
-
-- [3 种常用的缓存读写策略详解](./docs/database/redis/3-commonly-used-cache-read-and-write-strategies.md)
-- [Redis 5 种基本数据结构详解](./docs/database/redis/redis-data-structures-01.md)
-- [Redis 3 种特殊数据结构详解](./docs/database/redis/redis-data-structures-02.md)
-- [Redis 持久化机制详解](./docs/database/redis/redis-persistence.md)
-- [Redis 内存碎片详解](./docs/database/redis/redis-memory-fragmentation.md)
-- [Redis 常见阻塞原因总结](./docs/database/redis/redis-common-blocking-problems-summary.md)
-- [Redis 集群详解](./docs/database/redis/redis-cluster.md)
-
-### MongoDB
-
-- [MongoDB 常见知识点&面试题总结(上)](./docs/database/mongodb/mongodb-questions-01.md)
-- [MongoDB 常见知识点&面试题总结(下)](./docs/database/mongodb/mongodb-questions-02.md)
-
-## 搜索引擎
-
-[Elasticsearch 常见面试题总结(付费)](./docs/database/elasticsearch/elasticsearch-questions-01.md)
-
-![JavaGuide 官方公众号](https://oss.javaguide.cn/github/javaguide/gongzhonghaoxuanchuan.png)
-
-## 开发工具
-
-### Maven
-
-[Maven 核心概念总结](./docs/tools/maven/maven-core-concepts.md)
-
-### Gradle
-
-[Gradle 核心概念总结](./docs/tools/gradle/gradle-core-concepts.md)（可选，目前国内还是使用 Maven 普遍一些）
-
-### Docker
-
-- [Docker 核心概念总结](./docs/tools/docker/docker-intro.md)
-- [Docker 实战](./docs/tools/docker/docker-in-action.md)
-
-### Git
-
-- [Git 核心概念总结](./docs/tools/git/git-intro.md)
-- [GitHub 实用小技巧总结](./docs/tools/git/github-tips.md)
-
-## 系统设计
-
-- [系统设计常见面试题总结](./docs/system-design/system-design-questions.md)
-- [设计模式常见面试题总结](./docs/system-design/design-pattern.md)
-
-### 基础
-
-- [RestFul API 简明教程](./docs/system-design/basis/RESTfulAPI.md)
-- [软件工程简明教程简明教程](./docs/system-design/basis/software-engineering.md)
-- [代码命名指南](./docs/system-design/basis/naming.md)
-- [代码重构指南](./docs/system-design/basis/refactoring.md)
-- [单元测试指南](./docs/system-design/basis/unit-test.md)
-
-### 常用框架
-
-#### Spring/SpringBoot (必看 :+1:)
-
-**知识点/面试题总结** :
-
-- [Spring 常见知识点&面试题总结](./docs/system-design/framework/spring/spring-knowledge-and-questions-summary.md)
-- [SpringBoot 常见知识点&面试题总结](./docs/system-design/framework/spring/springboot-knowledge-and-questions-summary.md)
-- [Spring/Spring Boot 常用注解总结](./docs/system-design/framework/spring/spring-common-annotations.md)
-- [SpringBoot 入门指南](https://github.com/Snailclimb/springboot-guide)
-
-**重要知识点详解**：
-
-- [Spring 事务详解](./docs/system-design/framework/spring/spring-transaction.md)
-- [Spring 中的设计模式详解](./docs/system-design/framework/spring/spring-design-patterns-summary.md)
-- [SpringBoot 自动装配原理详解](./docs/system-design/framework/spring/spring-boot-auto-assembly-principles.md)
-
-#### MyBatis
-
-[MyBatis 常见面试题总结](./docs/system-design/framework/mybatis/mybatis-interview.md)
-
-### 安全
-
-#### 认证授权
-
-- [认证授权基础概念详解](./docs/system-design/security/basis-of-authority-certification.md)
-- [JWT 基础概念详解](./docs/system-design/security/jwt-intro.md)
-- [JWT 优缺点分析以及常见问题解决方案](./docs/system-design/security/advantages-and-disadvantages-of-jwt.md)
-- [SSO 单点登录详解](./docs/system-design/security/sso-intro.md)
-- [权限系统设计详解](./docs/system-design/security/design-of-authority-system.md)
-
-#### 数据脱敏
-
-数据脱敏说的就是我们根据特定的规则对敏感信息数据进行变形，比如我们把手机号、身份证号某些位数使用 \* 来代替。
-
-#### 敏感词过滤
-
-[敏感词过滤方案总结](./docs/system-design/security/sentive-words-filter.md)
-
-### 定时任务
-
-[Java 定时任务详解](./docs/system-design/schedule-task.md)
-
-### Web 实时消息推送
-
-[Web 实时消息推送详解](./docs/system-design/web-real-time-message-push.md)
-
-## 分布式
-
-### 理论&算法&协议
-
-- [CAP 理论和 BASE 理论解读](https://javaguide.cn/distributed-system/protocol/cap-and-base-theorem.html)
-- [Paxos 算法解读](https://javaguide.cn/distributed-system/protocol/paxos-algorithm.html)
-- [Raft 算法解读](https://javaguide.cn/distributed-system/protocol/raft-algorithm.html)
-- [Gossip 协议详解](https://javaguide.cn/distributed-system/protocol/gossip-protocl.html)
-
-### RPC
-
-- [RPC 基础知识总结](https://javaguide.cn/distributed-system/rpc/rpc-intro.html)
-- [Dubbo 常见知识点&面试题总结](https://javaguide.cn/distributed-system/rpc/dubbo.html)
-
-### ZooKeeper
-
-> 这两篇文章可能有内容重合部分，推荐都看一遍。
-
-- [ZooKeeper 相关概念总结(入门)](https://javaguide.cn/distributed-system/distributed-process-coordination/zookeeper/zookeeper-intro.html)
-- [ZooKeeper 相关概念总结(进阶)](https://javaguide.cn/distributed-system/distributed-process-coordination/zookeeper/zookeeper-plus.html)
-
-### API 网关
-
-- [API 网关基础知识总结](https://javaguide.cn/distributed-system/api-gateway.html)
-- [Spring Cloud Gateway 常见知识点&面试题总结](./docs/distributed-system/spring-cloud-gateway-questions.md)
-
-### 分布式 ID
-
-- [分布式 ID 常见知识点&面试题总结](https://javaguide.cn/distributed-system/distributed-id.html)
-- [分布式 ID 设计指南](https://javaguide.cn/distributed-system/distributed-id-design.html)
-
-### 分布式锁
-
-[分布式锁常见知识点&面试题总结](https://javaguide.cn/distributed-system/distributed-lock.html)
-
-### 分布式事务
-
-[分布式事务常见知识点&面试题总结](https://javaguide.cn/distributed-system/distributed-transaction.html)
-
-### 分布式配置中心
-
-[分布式配置中心常见知识点&面试题总结](./docs/distributed-system/distributed-configuration-center.md)
-
-## 高性能
-
-### 数据库读写分离&分库分表
-
-[数据库读写分离和分库分表常见知识点&面试题总结](./docs/high-performance/read-and-write-separation-and-library-subtable.md)
-
-### 负载均衡
-
-[负载均衡常见知识点&面试题总结](./docs/high-performance/load-balancing.md)
-
-### SQL 优化
-
-[常见 SQL 优化手段总结](./docs/high-performance/sql-optimization.md)
-
-### CDN
-
-[CDN（内容分发网络）常见知识点&面试题总结](./docs/high-performance/cdn.md)
-
-### 消息队列
-
-- [消息队列基础知识总结](./docs/high-performance/message-queue/message-queue.md)
-- [Disruptor 常见知识点&面试题总结](./docs/high-performance/message-queue/disruptor-questions.md)
-- [RabbitMQ 常见知识点&面试题总结](./docs/high-performance/message-queue/rabbitmq-questions.md)
-- [RocketMQ 常见知识点&面试题总结](./docs/high-performance/message-queue/rocketmq-questions.md)
-- [Kafka 常见知识点&面试题总结](./docs/high-performance/message-queue/kafka-questions-01.md)
-
-## 高可用
-
-[高可用系统设计指南](./docs/high-availability/high-availability-system-design.md)
-
-### 冗余设计
-
-[冗余设计详解](./docs/high-availability/redundancy.md)
-
-### 限流
-
-[服务限流详解](./docs/high-availability/limit-request.md)
-
-### 降级&熔断
-
-[降级&熔断详解](./docs/high-availability/fallback-and-circuit-breaker.md)
-
-### 超时&重试
-
-[超时&重试详解](./docs/high-availability/timeout-and-retry.md)
-
-### 集群
-
-相同的服务部署多份，避免单点故障。
-
-### 灾备设计和异地多活
-
-**灾备** = 容灾 + 备份。
-
-- **备份**：将系统所产生的的所有重要数据多备份几份。
-- **容灾**：在异地建立两个完全相同的系统。当某个地方的系统突然挂掉，整个应用系统可以切换到另一个，这样系统就可以正常提供服务了。
-
-**异地多活** 描述的是将服务部署在异地并且服务同时对外提供服务。和传统的灾备设计的最主要区别在于“多活”，即所有站点都是同时在对外提供服务的。异地多活是为了应对突发状况比如火灾、地震等自然或者人为灾害。
-
-## Star 趋势
-
-![Stars](https://api.star-history.com/svg?repos=Snailclimb/JavaGuide&type=Date)
-
-##  贡献
-
-如果大家觉得此文档对大家帮助很大的话，可以请作者喝杯奶茶或者加个鸡腿🍗。
+如果你觉得这个项目帮助到了你，可以帮作者买杯奶茶或者加个鸡腿🍗表示鼓励。
 
 <div>   
 	<img src="./img/wxpay.jpg" width="49%" >
