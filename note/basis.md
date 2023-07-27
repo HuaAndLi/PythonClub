@@ -1,358 +1,819 @@
----
-title: BigDecimal 详解
-category: Java
-tag:
-  - Java基础
----
+[TOC]
 
-《阿里巴巴 Java 开发手册》中提到：“为了避免精度丢失，可以使用 `BigDecimal` 来进行浮点数的运算”。
+# Python的简介
 
-浮点数的运算竟然还会有精度丢失的风险吗？确实会！
+`Python的起源`
 
-示例代码：
+1989年，为了打发圣诞节假期，Gudio van Rossum吉多· 范罗苏姆（龟叔）决心开发一个新的解释程序（Python雏形）
 
-```java
-float a = 2.0f - 1.9f;
-float b = 1.8f - 1.7f;
-System.out.println(a);// 0.100000024
-System.out.println(b);// 0.099999905
-System.out.println(a == b);// false
+1991年，第一个Python解释器诞生
+
+Python这个名字，来自龟叔所挚爱的电视剧Monty Python's Flying Circus
+
+`Python的安装`
+
+参考网上教程，可以单纯安装python或者安装anaconda
+
+`第一个python程序`
+
+```python
+print('hello world!') #注意：输入的双引号和括号，请使用英文符号哦
+
 ```
 
-**为什么浮点数 `float` 或 `double` 运算的时候会有精度丢失的风险呢？**
+`问题：`
 
-这个和计算机保存浮点数的机制有很大关系。我们知道计算机是二进制的，而且计算机在表示一个数字时，宽度是有限的，无限循环的小数存储在计算机时，只能被截断，所以就会导致小数精度发生损失的情况。这也就是解释了为什么浮点数没有办法用二进制精确表示。
+**1.Python的诞生？**
 
-就比如说十进制下的 0.2 就没办法精确转换成二进制小数：
+ 1991年吉多·范·罗苏姆（龟叔）创建
 
-```java
-// 0.2 转换为二进制数的过程为，不断乘以 2，直到不存在小数为止，
-// 在这个计算过程中，得到的整数部分从上到下排列就是二进制的结果。
-0.2 * 2 = 0.4 -> 0
-0.4 * 2 = 0.8 -> 0
-0.8 * 2 = 1.6 -> 1
-0.6 * 2 = 1.2 -> 1
-0.2 * 2 = 0.4 -> 0（发生循环）
-...
+**2.为什么使用Python？**
+
+ 简单易学、全球第一、优雅、应用场景丰富（就业方向多）
+
+**3.Python的应用场景？**
+
+测试开发、运维开发、科学研究、（大）数据开发、后端开发、数据分析/可视化、AI人工智能、计算机二级考试、小学正课/少儿编程
+
+**4. 什么是编程语言？**
+
+人类和计算机交流的一种专有领域语言
+
+**2. 编程语言的工作原理？**
+
+想法转换为编程语言代码,通过翻译官（解释器）翻译成二进制提交计算机执行
+
+
+
+# Python的基本语法
+
+
+
+## 字面量
+
+### 字面量的含义
+
+字面量：在代码中，被**写下来**的的固定的**值**，称之为字面量
+
+### 常见的字面量类型
+
+Python中常用的有**6**种值（数据）的类型
+
+
+
+<div>
+<table>
+    <tr>
+        <th><b>类型</b></th> 
+        <th><b>描述</b></th> 
+        <th><b>说明</b></th> 
+   	</tr>
+    <tr>
+        <td rowspan="4">数字（Number）</td> 
+        <td rowspan="4">支持<br />•整数（int）<br />•浮点数（float）<br />•复数（complex）<br />•布尔（bool）</td> 
+        <td >整数（int），如：10、-10</td>  
+    </tr>
+    <tr>
+        <td>浮点数（float），如：13.14、-13.14</td> 
+   	</tr>
+    <tr>
+        <td>复数（complex），如：4+3j，以j结尾表示复数</td> 
+   	</tr>
+    <tr>
+        <td>布尔（bool）表达现实生活中的逻辑，即真和假，True表示真，False表示假。<br>
+			True本质上是一个数字记作1，False记作0
+		</td> 
+   	</tr>
+    <tr>
+        <td >字符串（String）</td> 
+        <td >描述文本的一种数据类型</td> 
+        <td >字符串（string）由任意数量的字符组成</td>  
+    </tr>
+    <tr>
+    	<td >列表（List）</td> 
+    	<td >有序的可变序列</td> 
+    	<td >Python中使用最频繁的数据类型，可有序记录一堆数据</td>  
+	</tr>
+	<tr>
+    	<td >元组（Tuple）</td> 
+    	<td >有序的不可变序列</td> 
+    	<td >可有序记录一堆不可变的Python数据集合</td>  
+	</tr>
+    <tr>
+        <td >集合（Set）</td> 
+        <td >无序不重复集合</td> 
+        <td >可无序记录一堆不重复的Python数据集合</td>  
+    </tr>
+    <tr>
+        <td >字典（Dictionary）</td> 
+        <td >无序Key-Value集合</td> 
+        <td >可无序记录一堆Key-Value型的Python数据集合</td>  
+    </tr>
+</table>
+</div>
+
+
+
+`字符串`
+
+字符串（string），又称文本，是由任意数量的字符如中文、英文、各类符号、数字等组成。所以叫做字符的串
+
+如：
+
+```python
+"程序员"
+"学Python来"
+"!@#$%^&"
+"股票代码是：00333032" #Python中，字符串需要用双引号（"）包围起来被引号包围起来的，都是字符串
+
 ```
 
-关于浮点数的更多内容，建议看一下[计算机系统基础（四）浮点数](http://kaito-kidd.com/2018/08/08/computer-system-float-point/)这篇文章。
+### 基于print语句各类字面量的输出
 
-## BigDecimal 介绍
-
-`BigDecimal` 可以实现对浮点数的运算，不会造成精度丢失。
-
-通常情况下，大部分需要浮点数精确运算结果的业务场景（比如涉及到钱的场景）都是通过 `BigDecimal` 来做的。
-
-《阿里巴巴 Java 开发手册》中提到：**浮点数之间的等值判断，基本数据类型不能用 == 来比较，包装数据类型不能用 equals 来判断。**
-
-![](https://oss.javaguide.cn/javaguide/image-20211213101646884.png)
-
-具体原因我们在上面已经详细介绍了，这里就不多提了。
-
-想要解决浮点数运算精度丢失这个问题，可以直接使用 `BigDecimal` 来定义浮点数的值，然后再进行浮点数的运算操作即可。
-
-```java
-BigDecimal a = new BigDecimal("1.0");
-BigDecimal b = new BigDecimal("0.9");
-BigDecimal c = new BigDecimal("0.8");
-
-BigDecimal x = a.subtract(b);
-BigDecimal y = b.subtract(c);
-
-System.out.println(x.compareTo(y));// 0
+``` python
+print(666)
+print(13.14)
+print("程序员")
 ```
 
-## BigDecimal 常见方法
+### 总结
 
-### 创建
+**1. 掌握字面量的含义**
 
-我们在使用 `BigDecimal` 时，为了防止精度丢失，推荐使用它的`BigDecimal(String val)`构造方法或者 `BigDecimal.valueOf(double val)` 静态方法来创建对象。
+代码中，被写在代码中的固定的值，称之为字面量
 
-《阿里巴巴 Java 开发手册》对这部分内容也有提到，如下图所示。
+**2. 常见的字面量类型**
 
-![](https://oss.javaguide.cn/javaguide/image-20211213102222601.png)
+我们目前了解：整数、浮点数、字符串这三类即可
 
-### 加减乘除
+**3. 如何基于print语句完成各类字面量的输出**
 
-`add` 方法用于将两个 `BigDecimal` 对象相加，`subtract` 方法用于将两个 `BigDecimal` 对象相减。`multiply` 方法用于将两个 `BigDecimal` 对象相乘，`divide` 方法用于将两个 `BigDecimal` 对象相除。
+print(字面量)，如：
 
-```java
-BigDecimal a = new BigDecimal("1.0");
-BigDecimal b = new BigDecimal("0.9");
-System.out.println(a.add(b));// 1.9
-System.out.println(a.subtract(b));// 0.1
-System.out.println(a.multiply(b));// 0.90
-System.out.println(a.divide(b));// 无法除尽，抛出 ArithmeticException 异常
-System.out.println(a.divide(b, 2, RoundingMode.HALF_UP));// 1.11
+•print(10)，输出整数10
+
+•print(13.14)，输出浮点数13.14
+
+•print("程序员")，输出字符串：程序员
+
+
+
+## 注释
+
+### 注释的作用
+
+注释：在程序代码中对程序代码进行解释说明的文字。
+
+作用：注释不是程序，**不能被执行**，只是对程序代码进行解释说明，让别人可以看懂程序代码的作用，能够
+
+大大增强程序的可读性。
+
+### 单行注释和多行注释
+
+**单行注释**：以 #开头，#右边 的所有文字当作说明，而不是真正要执行的程序，起辅助说明作用
+
+```python
+#这是单行注释
 ```
 
-这里需要注意的是，在我们使用 `divide` 方法的时候尽量使用 3 个参数版本，并且`RoundingMode` 不要选择 `UNNECESSARY`，否则很可能会遇到 `ArithmeticException`（无法除尽出现无限循环小数的时候），其中 `scale` 表示要保留几位小数，`roundingMode` 代表保留规则。
+**多行注释**： 以 一对三个双引号 引起来 ( """注释内容""" )来解释说明一段代码的作用使用方法
 
-```java
-public BigDecimal divide(BigDecimal divisor, int scale, RoundingMode roundingMode) {
-    return divide(divisor, scale, roundingMode.oldMode);
-}
+```python
+"""
+多行注释
+"""
 ```
 
-保留规则非常多，这里列举几种:
+### 总结
 
-```java
-public enum RoundingMode {
-   // 2.5 -> 3 , 1.6 -> 2
-   // -1.6 -> -2 , -2.5 -> -3
-			 UP(BigDecimal.ROUND_UP),
-   // 2.5 -> 2 , 1.6 -> 1
-   // -1.6 -> -1 , -2.5 -> -2
-			 DOWN(BigDecimal.ROUND_DOWN),
-			 // 2.5 -> 3 , 1.6 -> 2
-   // -1.6 -> -1 , -2.5 -> -2
-			 CEILING(BigDecimal.ROUND_CEILING),
-			 // 2.5 -> 2 , 1.6 -> 1
-   // -1.6 -> -2 , -2.5 -> -3
-			 FLOOR(BigDecimal.ROUND_FLOOR),
-   	// 2.5 -> 3 , 1.6 -> 2
-   // -1.6 -> -2 , -2.5 -> -3
-			 HALF_UP(BigDecimal.ROUND_HALF_UP),
-   //......
-}
+**1. 注释的作用是？**
+
+注释是代码中的解释型语句，用来对代码内容进行注解
+
+注释不是代码，不会被程序执行
+
+**2. 单行注释如何定义？**
+
+通过 # 号定义，在#号右侧的所有内容均作为注释
+
+建议在#号和注释内容之间，间隔一个空格
+
+单行注释一般用于对一行或一小部分代码进行解释 
+
+**3. 多行注释如何定义？**
+
+通过一对三个引号来定义("""注释内容""")，引号内部均是注释，可以换行
+
+多行注释一般对：Python文件、类或方法进行解释
+
+
+
+## 变量
+
+### 变量的作用及特征
+
+变量：在程序运行时，能储存计算结果或能表示值的抽象概念。简单的说，变量就是在程序运行时，记录数据用的
+
+特征：变量，从名字中可以看出，表示“量”是可变的。所以，变量的特征就是，**变量存储的数据，是可以发生改变的。**
+
+目的：变量的目的是存储运行过程的数据，存储的目的是为了：**重复使用**
+
+### 变量的定义方式
+
+```python
+#变量的定义格式
+变量名称(1)  =(2)  变量的值(3)
+#1每一个变量都有自己的名称，称之为：变量名，也就是变量本身
+#2赋值，表示将等号右侧的值，赋予左侧的变量
+#3每一个变量都有自己存储的值（内容），称之为：变量值
 ```
 
-### 大小比较
+### 总结
 
-`a.compareTo(b)` : 返回 -1 表示 `a` 小于 `b`，0 表示 `a` 等于 `b` ， 1 表示 `a` 大于 `b`。
+**1.变量是什么，有什么作用？**
 
-```java
-BigDecimal a = new BigDecimal("1.0");
-BigDecimal b = new BigDecimal("0.9");
-System.out.println(a.compareTo(b));// 1
+变量就是在程序运行时，记录数据用的
+
+**2. 变量的定义格式是？**
+
+变量名 = 变量值
+
+**3. 变量的特征是？**
+
+ 变量的值可以改变
+
+**4. print语句如何输出多份内容？**
+
+print(内容1, 内容2, ......, 内容N)
+
+**5. Python中如何做减法？**
+
+使用符号 - 即可完成减法运算
+
+拓展：加（+）、减（-）、乘（*）、除（/）
+
+
+
+### 练习
+
+题目：请在程序中，定义如下变量：
+
+•钱包余额(变量名：money)，初始余额50
+
+请通过程序计算，在购买了：
+
+•冰淇淋10元
+
+•可乐5元
+
+后，钱包余额还剩余多少元。请通过print语句进行输出：
+
+```python
+"""
+演示Python中变量的相关操作
+"""
+
+# 定义一个变量，用来记录钱包余额
+money = 50
+# 通过print语句，输出变量记录的内容
+print("钱包还有：", money)
+
+# 买了一个冰淇淋，花费10元
+money = money - 10
+print("买了冰淇淋花费10元，还剩余：", money, "元")
+# 买了一个可乐，花费10元
+money = money - 5
+print("买了可乐花费10元，还剩余：", money, "元")
+
 ```
 
-### 保留几位小数
 
-通过 `setScale`方法设置保留几位小数以及保留规则。保留规则有挺多种，不需要记，IDEA 会提示。
 
-```java
-BigDecimal m = new BigDecimal("1.255433");
-BigDecimal n = m.setScale(3,RoundingMode.HALF_DOWN);
-System.out.println(n);// 1.255
+## 数据类型
+
+###  常用的数据类型
+
+| 类型       | 描述             | 说明                              |
+| ---------- | ---------------- | --------------------------------- |
+| **string** | 字符串类型       | 用引号引起来的数据都是字符串      |
+| **int**    | 整型（有符号）   | 数字类型，存放整数 如 -1,10, 0 等 |
+| **float**  | 浮点型（有符号） | 数字类型，存放小数 如 -3.14, 6.66 |
+
+### type()语句
+
+通过type(变量)可以输出类型，查看变量存储的数据的类型。因为，变量无类型，但是它存储的数据有
+
+```python
+# 方式1： 使用print直接输出类型信息
+print(type("程序员"))
+print(type(666))
+print(type(11.345))
+
+# 方式2： 使用变量存储type()语句的结果
+string_type = type("程序员")
+int_type = type(666)
+float_type = type(11.345)
+print(string_type)
+print(int_type)
+print(float_type)
+
+# 方式3： 使用type()语句，查看变量中存储的数据类型信息
+name = "程序员"
+name_type = type(name)
+print(name_type)
 ```
 
-## BigDecimal 等值比较问题
+### 字符串类型的不同定义方式
 
-《阿里巴巴 Java 开发手册》中提到：
+字符串有3种不同的定义方式：
 
-![](https://oss.javaguide.cn/github/javaguide/java/basis/image-20220714161315993.png)
+"字符串"
 
-`BigDecimal` 使用 `equals()` 方法进行等值比较出现问题的代码示例：
+ '字符串'
 
-```java
-BigDecimal a = new BigDecimal("1");
-BigDecimal b = new BigDecimal("1.0");
-System.out.println(a.equals(b));//false
+ """字符串"""
+
+### 总结
+
+**1. 使用什么语句可以查看数据的类型？**
+
+type()
+
+**2. 如下代码，name_type变量可以存储变量name的类型信息，是因为？**
+
+string_type = type("程序员")
+print(string_type)
+
+因为type()语句会给出结果（返回值）
+
+**3. 变量有没有类型？**
+
+没有，字符串变量表示变量存储了字符串而不是表示变量就是字符串
+
+## 数据类型转换
+
+数据类型转换，将会是我们以后经常使用的功能。
+
+如：
+
+•从文件中读取的数字，默认是字符串，我们需要转换成数字类型
+
+•后续学习的input()语句，默认结果是字符串，若需要数字也需要转换
+
+•将数字转换成字符串用以写出到外部系统
+
+•等等
+
+### 常见的转换语句
+
+| **语句(函数)** | **说明**               |
+| -------------- | ---------------------- |
+| int(x)         | 将x转换为一个整数      |
+| float(x)       | 将x转换为一个浮点数    |
+| str(x)         | 将对象  x 转换为字符串 |
+
+*这三个语句，都是带有结果的（返回值）可以用print直接输出或用变量存储结果值*
+
+类型转换不是万能的，我们需要注意：
+
+1. 任何类型，都可以通过str()，转换成字符串
+
+2. 字符串内必须真的是数字，才可以将字符串转换为数字
+
+`实例代码：`
+
+```python
+# 将数字类型转换成字符串
+num_str = str(11)
+print(type(num_str), num_str)
+
+float_str = str(11.345)
+print(type(float_str), float_str)
+# 将字符串转换成数字
+num = int("11")
+print(type(num), num)
+
+num2 = float("11.345")
+print(type(num2), num2)
+
+# 错误示例，想要将字符串转换成数字，必须要求字符串内的内容都是数字
+# num3 = int("程序员")
+# print(type(num3), num3)
+
+# 整数转浮点数
+float_num = float(11)
+print(type(float_num), float_num)
+
+# 浮点数转整数
+int_num = int(11.345)
+print(type(int_num), int_num)
 ```
 
-这是因为 `equals()` 方法不仅仅会比较值的大小（value）还会比较精度（scale），而 `compareTo()` 方法比较的时候会忽略精度。
 
-1.0 的 scale 是 1，1 的 scale 是 0，因此 `a.equals(b)` 的结果是 false。
 
-![](https://oss.javaguide.cn/github/javaguide/java/basis/image-20220714164706390.png)
+### 总结
 
-`compareTo()` 方法可以比较两个 `BigDecimal` 的值，如果相等就返回 0，如果第 1 个数比第 2 个数大则返回 1，反之返回-1。
+**1.字符串、整数、浮点数类型转换的语句是？**
 
-```java
-BigDecimal a = new BigDecimal("1");
-BigDecimal b = new BigDecimal("1.0");
-System.out.println(a.compareTo(b));//0
+| 语句(函数) | **说明**               |
+| ---------- | ---------------------- |
+| int(x)     | 将x转换为一个整数      |
+| float(x)   | 将x转换为一个浮点数    |
+| str(x)     | 将对象  x 转换为字符串 |
+
+**2.任何类型都可以转换成字符串，对不对？**
+
+正确
+
+**3.字符串可以随意转换成数字，对不对？**
+
+错误，字符串内必须只有数字才可以
+
+**4.浮点数转整数会丢失什么？**
+
+丢失精度，也就是小数部分
+
+## 标识符
+
+在Python程序中，我们可以给很多东西起名字，比如：
+
+- 变量的名字
+
+- 方法的名字
+- 类的名字,等等
+
+这些名字，我们把它统一的称之为标识符，用来做内容的标识。
+
+所以，标识符：是用户在编程的时候所使用的一系列名字，用于给变量、类、方法等命名。
+
+
+
+### 命名规则与规范
+
+Python中，标识符命名的`规则`主要有3类：
+
+**内容限定:**
+
+标识符命名中，只允许出现：英文、中文、数字、下划线_。
+
+其余任何内容都不被允许。注意：1. 不推荐使用中文。2. 数字不可以开头
+
+**大小写敏感**：
+
+以定义变量为例：
+
+```python
+Andy = “安迪1”
+andy = “安迪2”
 ```
 
-## BigDecimal 工具类分享
+字母a的大写和小写，是完全能够区分的。
 
-网上有一个使用人数比较多的 `BigDecimal` 工具类，提供了多个静态方法来简化 `BigDecimal` 的操作。
+**不可使用关键字:**
 
-我对其进行了简单改进，分享一下源码：
+Python中有一系列单词，称之为关键字,关键字在Python中都有特定用途,我们不可以使用它们作为标识符,。
 
-```java
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
-/**
- * 简化BigDecimal计算的小工具类
- */
-public class BigDecimalUtil {
 
-    /**
-     * 默认除法运算精度
-     */
-    private static final int DEF_DIV_SCALE = 10;
+变量命名`规范`
 
-    private BigDecimalUtil() {
-    }
+学完了标识符（变量、类、方法）的命名**规则**后，我们在来学习标识符的命名**规范**。
 
-    /**
-     * 提供精确的加法运算。
-     *
-     * @param v1 被加数
-     * @param v2 加数
-     * @return 两个参数的和
-     */
-    public static double add(double v1, double v2) {
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.add(b2).doubleValue();
-    }
+变量名、类名、方法名，不同的标识符，有不同的规范。
 
-    /**
-     * 提供精确的减法运算。
-     *
-     * @param v1 被减数
-     * @param v2 减数
-     * @return 两个参数的差
-     */
-    public static double subtract(double v1, double v2) {
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.subtract(b2).doubleValue();
-    }
 
-    /**
-     * 提供精确的乘法运算。
-     *
-     * @param v1 被乘数
-     * @param v2 乘数
-     * @return 两个参数的积
-     */
-    public static double multiply(double v1, double v2) {
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.multiply(b2).doubleValue();
-    }
 
-    /**
-     * 提供（相对）精确的除法运算，当发生除不尽的情况时，精确到
-     * 小数点以后10位，以后的数字四舍五入。
-     *
-     * @param v1 被除数
-     * @param v2 除数
-     * @return 两个参数的商
-     */
-    public static double divide(double v1, double v2) {
-        return divide(v1, v2, DEF_DIV_SCALE);
-    }
+`实例代码：`
 
-    /**
-     * 提供（相对）精确的除法运算。当发生除不尽的情况时，由scale参数指
-     * 定精度，以后的数字四舍五入。
-     *
-     * @param v1    被除数
-     * @param v2    除数
-     * @param scale 表示表示需要精确到小数点以后几位。
-     * @return 两个参数的商
-     */
-    public static double divide(double v1, double v2, int scale) {
-        if (scale < 0) {
-            throw new IllegalArgumentException(
-                    "The scale must be a positive integer or zero");
-        }
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.divide(b2, scale, RoundingMode.HALF_UP).doubleValue();
-    }
+```python
+# 规则1：内容限定，限定只能使用：中文、英文、数字、下划线，注意：不能以数字开头
+# 错误的代码示范：1_name = "张三"
+# 错误的代码示范：name_! = "张三"
+name_ = "张三"
+_name = "张三"
+name_1 = "张三"
 
-    /**
-     * 提供精确的小数位四舍五入处理。
-     *
-     * @param v     需要四舍五入的数字
-     * @param scale 小数点后保留几位
-     * @return 四舍五入后的结果
-     */
-    public static double round(double v, int scale) {
-        if (scale < 0) {
-            throw new IllegalArgumentException(
-                    "The scale must be a positive integer or zero");
-        }
-        BigDecimal b = BigDecimal.valueOf(v);
-        BigDecimal one = new BigDecimal("1");
-        return b.divide(one, scale, RoundingMode.HALF_UP).doubleValue();
-    }
+# 规则2：大小写敏感
+Job = "程序员"
+job = 666
+print(Job)
+print(job)
 
-    /**
-     * 提供精确的类型转换(Float)
-     *
-     * @param v 需要被转换的数字
-     * @return 返回转换结果
-     */
-    public static float convertToFloat(double v) {
-        BigDecimal b = new BigDecimal(v);
-        return b.floatValue();
-    }
-
-    /**
-     * 提供精确的类型转换(Int)不进行四舍五入
-     *
-     * @param v 需要被转换的数字
-     * @return 返回转换结果
-     */
-    public static int convertsToInt(double v) {
-        BigDecimal b = new BigDecimal(v);
-        return b.intValue();
-    }
-
-    /**
-     * 提供精确的类型转换(Long)
-     *
-     * @param v 需要被转换的数字
-     * @return 返回转换结果
-     */
-    public static long convertsToLong(double v) {
-        BigDecimal b = new BigDecimal(v);
-        return b.longValue();
-    }
-
-    /**
-     * 返回两个数中大的一个值
-     *
-     * @param v1 需要被对比的第一个数
-     * @param v2 需要被对比的第二个数
-     * @return 返回两个数中大的一个值
-     */
-    public static double returnMax(double v1, double v2) {
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
-        return b1.max(b2).doubleValue();
-    }
-
-    /**
-     * 返回两个数中小的一个值
-     *
-     * @param v1 需要被对比的第一个数
-     * @param v2 需要被对比的第二个数
-     * @return 返回两个数中小的一个值
-     */
-    public static double returnMin(double v1, double v2) {
-        BigDecimal b1 = new BigDecimal(v1);
-        BigDecimal b2 = new BigDecimal(v2);
-        return b1.min(b2).doubleValue();
-    }
-
-    /**
-     * 精确对比两个数字
-     *
-     * @param v1 需要被对比的第一个数
-     * @param v2 需要被对比的第二个数
-     * @return 如果两个数一样则返回0，如果第一个数比第二个数大则返回1，反之返回-1
-     */
-    public static int compareTo(double v1, double v2) {
-        BigDecimal b1 = BigDecimal.valueOf(v1);
-        BigDecimal b2 = BigDecimal.valueOf(v2);
-        return b1.compareTo(b2);
-    }
-
-}
+# 规则3：不可使用关键字
+# 错误的示例，使用了关键字：class = 1
+# 错误的示例，使用了关键字：def = 1
+Class = 1
 ```
 
-## 总结
 
-浮点数没有办法用二进制精确表示，因此存在精度丢失的风险。
 
-不过，Java 提供了`BigDecimal` 来操作浮点数。`BigDecimal` 的实现利用到了 `BigInteger` （用来操作大整数）, 所不同的是 `BigDecimal` 加入了小数位的概念。
+### 总结
+
+**1. 什么是标识符？**
+
+用户编写代码时，对变量、类、方法等编写的名字，叫做标识符。
+
+**2. 标识符的命名规则？**
+
+•内容限定（中文、英文、数字、下划线）
+
+•大小写敏感
+
+•不可使用关键字
+
+**3. 变量的命名规范？**
+
+•见名知意
+
+•下划线命名法
+
+英文字母全小写
+
+
+
+## 运算符
+
+### 算术（数学）运算符
+
+| 运算符 | 描述   | 实例                                                         |
+| ------ | ------ | ------------------------------------------------------------ |
+| +      | 加     | 两个对象相加  a + b 输出结果  30  ，a=10,b=20                |
+| -      | 减     | 得到负数或是一个数减去另一个数  a - b 输出结果  -10          |
+| *      | 乘     | 两个数相乘或是返回一个被重复若干次的字符串  a * b 输出结果  200 |
+| /      | 除     | b /  a 输出结果 2                                            |
+| //     | 取整除 | 返回商的整数部分  9//2 输出结果  4 , 9.0//2.0 输出结果  4.0  |
+| %      | 取余   | 返回除法的余数  b % a 输出结果  0                            |
+| **     | 指数   | a**b  为10的20次方，  输出结果 100000000000000000000         |
+
+```python
+# 算术（数学）运算符
+print("1 + 1 = ", 1 + 1) #2
+print("2 - 1 = ", 2 - 1) #1
+print("3 * 3 = ", 3 * 3) #9
+print("4 / 2 = ", 4 / 2) #2.0
+print("11 // 2 = ", 11 // 2) #5
+print("9 % 2 = ", 9 % 2) #1
+print("2 ** 2 = ", 2 ** 2) #4
+```
+
+
+
+### 赋值运算符
+
+| **运算符** | **描述**   | **实例**                                                     |
+| ---------- | ---------- | ------------------------------------------------------------ |
+| =          | 赋值运算符 | 把 =  号右边的结果 赋给 左边的变量，如 num  = 1 + 2 * 3，结果num的值为7 |
+
+```python
+# 赋值运算符
+num = 1 + 2 * 3
+```
+
+
+
+### 复合赋值运算符
+
+| **运算符** | **描述**         | **实例**                    |
+| ---------- | ---------------- | --------------------------- |
+| +=         | 加法赋值运算符   | c  += a 等效于 c =  c + a   |
+| -=         | 减法赋值运算符   | c  -= a 等效于 c =  c - a   |
+| *=         | 乘法赋值运算符   | c  *= a 等效于 c =  c * a   |
+| /=         | 除法赋值运算符   | c  /= a 等效于 c =  c / a   |
+| %=         | 取模赋值运算符   | c  %= a 等效于 c =  c % a   |
+| **=        | 幂赋值运算符     | c ** = a 等效于 c =  c ** a |
+| //=        | 取整除赋值运算符 | c  //= a 等效于 c =  c // a |
+
+```python
+# 复合赋值运算符
+# +=
+num = 1
+num += 1 # num = num + 1
+print("num += 1: ", num)
+num -= 1
+print("num -= 1: ", num)
+num *= 4
+print("num *= 4: ", num)
+num /= 2
+print("num /= 2: ", num)
+num = 3
+num %= 2
+print("num %= 2: ", num)
+
+num **= 2
+print("num **=2: ", num)
+
+num = 9
+num //= 2
+print("num //= 2:", num)
+```
+
+### 总结
+
+**1.常见的算术（数学）运算符有：**
+
+加（+）、减（-）、乘（*）、除（/）、整除（//）、取余（%）、求平方（**）
+
+**2.赋值运算符有：**
+
+•标准赋值： =
+
+•复合赋值：+=、-=、*=、/=、//=、%=、**=
+
+
+
+## 字符串
+
+
+
+### 字符串的三种定义方式
+
+字符串在Python中有多种定义形式：
+
+1.单引号定义法：'字符串'
+
+2.双引号定义法："字符串"
+
+3.三引号定义法："""字符串"""
+
+注：三引号定义法，和多行注释的写法一样，同样支持换行操作。使用变量接收它，它就是字符串不使用变量接收它，就可以作为多行注释使用。
+
+**字符串的引号嵌套**
+
+•单引号定义法，可以内含双引号
+
+•双引号定义法，可以内含单引号
+
+•可以使用转移字符（\）来将引号解除效用，变成普通字符串
+
+
+
+### 字符串拼接
+
+有两个字符串（文本）字面量，可以将其拼接成一个字符串，通过+号即可完成
+
+```python
+# 字符串字面量之间的拼接
+print("你好" + "xxx")
+# 字符串字面量和字符串变量的拼接
+name = "程序员"
+address = "江苏"
+#tel = 187 #拼接数字会报错
+#print("我是：" + name + "，我的地址是：" + address + "，我的电话是：" + tel)
+print("我是：" + name + "，我的地址是：" + address )
+```
+
+字符串无法和非字符串变量进行拼接，因为类型不一致，无法接上
+
+
+
+### 字符串格式化
+
+**占位的形式拼接字符串（字符串格式化）**
+
+```python
+# 通过占位的形式，完成拼接
+name = "程序员"
+message = "名字：%s" % name
+print(message)
+
+# 通过占位的形式，完成数字和字符串的拼接
+class_num = 23
+avg_salary = 1230000
+message = "人工智能，%s界，毕业平均工资：%s" % (class_num, avg_salary)
+print(message)
+
+name = "小明"
+setup_year = 2000
+stock_price = 19000.99
+message = "%s，出生于：%d，我的余额：%f" % (name, setup_year, stock_price)
+print(message)
+```
+
+其中的，%s 
+
+•% 表示：我要占位
+
+•s  表示：将变量变成字符串放入占位的地方
+
+所以，综合起来的意思就是：我先占个位置，等一会有个变量过来，我把它变成字符串放到占位的位置
+
+**Python中，其实支持非常多的数据类型占位，最常用的是如下三类**
+
+| 格式符号 | 转化                             |
+| -------- | -------------------------------- |
+| %s       | 将内容转换成字符串，放入占位位置 |
+| %d       | 将内容转换成整数，放入占位位置   |
+| %f       | 将内容转换成浮点型，放入占位位置 |
+
+
+
+### 格式化的精度控制
+
+我们可以使用辅助符号"m.n"来控制数据的宽度和精度
+
+•m，控制宽度，要求是数字（很少使用）,**设置的宽度小于数字自身，不生效**
+
+•.n，控制小数点精度，要求是数字，会进行小数的四舍五入
+
+示例：
+
+•%5d：表示将整数的宽度控制在5位，如数字11，被设置为5d，就会变成：[空格] [空格] [空格]11，用三个空格补足宽度。
+
+•%5.2f：表示将宽度控制为5，将小数点精度设置为2
+
+   **小数点和小数部分也算入宽度计算**。如，对11.345设置了**%7.2f** 后，结果是：[空格] [空格]11.35。2个空格补足宽度，小数部分限制2位精度后，**四舍五入**为 .35
+
+•%.2f：表示不限制宽度，只设置小数点精度为2，如11.345设置%.2f后，结果是11.35
+
+```python
+num1 = 11
+num2 = 11.345
+print("数字11宽度限制5，结果是：%5d" % num1)
+print("数字11宽度限制1，结果是：%1d" % num1)
+print("数字11.345宽度限制7，小数精度2，结果是：%7.2f" % num2)
+print("数字11.345不限制，小数精度2，结果是：%.2f" % num2)
+```
+
+
+
+### 字符串格式化方式2
+
+通过语法：f"内容{变量}"的格式来快速格式化
+
+这种写法不做精度控制,也不理会类型,原样输出,适用于快速格式化字符串
+
+```python
+"""
+演示第二种字符串格式化的方式：f"{占位}"
+"""
+name = "test"
+set_up_year = 200
+stock_price = 22.22
+# f: format
+print(f"我是{name}，我成立于：{set_up_year}年，我今天：{stock_price}")
+```
+
+
+
+### 对表达式进行格式化
+
+直接对“表达式”进行格式化
+
+如：
+
+1 + 1、5 * 2，就是表达式，因为有具体的结果，结果是一个数字
+
+```python
+"""
+演示对表达式进行字符串格式化
+"""
+print("1 * 1 的结果是：%d" % (1 * 1))
+print(f"1 * 2的结果是：{1 * 2}")
+print("字符串在Python中的类型名是：%s" % type("字符串"))
+```
+
+在无需使用变量进行数据存储的时候，可以直接格式化表达式，简化代码哦
+
+
+
+**1.表达式是什么？**
+
+表达式就是一个具有明确结果的代码语句，如 1 + 1、type(“字符串”)、3 * 5等
+
+在变量定义的时候，如 age = 11 + 11，等号右侧的就是表达式，也就是有具体的结果，将结果赋值给了等号左侧的变量
+
+**2. 如何格式化表达式？**
+
+•f"{表达式}"
+
+•"%s\%d\%f" % (表达式、表达式、表达式）
+
+## 数据输入
+
+input()语句可以从键盘获取输入。
+
+input(提示信息)，用以在使用者输入内容之前显示提示信息。
+
+无论键盘输入何种类型的数据,**最终的结果都是：字符串类型的数据**
+
+
+
+```python
+"""
+演示Python的input语句
+获取键盘的输入信息
+"""
+name = input("请告诉我你是谁？")
+print("我知道了，你是:%s" % name)
+
+# 输入数字类型
+num = input("请告诉我你的银行卡密码：")
+# 数据类型转换
+num = int(num)
+print("你的银行卡密码的类型是：", type(num))
+```
+
+
+
+
+
