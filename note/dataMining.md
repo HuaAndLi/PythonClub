@@ -93,13 +93,13 @@ plt.show()
 
 
 
-<div><img src=".\img\data_mining\Snipaste_2023-08-17_17-03-41.png" alt="Snipaste_2023-08-17_17-03-41" style="zoom:50%;" /></div>
+<div><img src=".\img\data_mining\Snipaste_2023-08-17_17-03-41.png" alt="Snipaste_2023-08-17_17-03-41" style="width:50%;" /></div>
 
 
 
 **2.1.4 认识Matplotlib图像结构**
 
-<div><img src="img\data_mining\Snipaste_2023-08-17_17-20-07.png" alt="Snipaste_2023-08-17_17-20-07" style="zoom:60%;" /></div>
+<div><img src="img\data_mining\Snipaste_2023-08-17_17-20-07.png" alt="Snipaste_2023-08-17_17-20-07" style="width:50%;" /></div>
 
 **2.1.5 拓展知识点：Matplotlib三层结构**
 
@@ -117,7 +117,7 @@ plt.show()
 
 ​			3）图像层 - 画各种图表
 
-<div><img src="img\data_mining\Snipaste_2023-08-17_17-29-29.png" alt="Snipaste_2023-08-17_17-29-29" style="zoom:80%;" /></div>
+<div><img src="img\data_mining\Snipaste_2023-08-17_17-29-29.png" alt="Snipaste_2023-08-17_17-29-29" style="width:80%;" /></div>
 
 ·总结：
 o Canvas(画板)位于最底层，用户一般接触不到
