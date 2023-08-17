@@ -117,13 +117,71 @@ plt.show()
 
 ​			3）图像层 - 画各种图表
 
-![Snipaste_2023-08-17_17-29-29](D:\PythonClub\note\img\data_mining\Snipaste_2023-08-17_17-29-29.png)
+<div><img src="D:\PythonClub\note\img\data_mining\Snipaste_2023-08-17_17-29-29.png" alt="Snipaste_2023-08-17_17-29-29" style="zoom:80%;" /></div>
+
+·总结：
+o Canvas(画板)位于最底层，用户一般接触不到
+。Figure(画布)建立在Canvas.之上
+。Axes(绘图区)建立在Figure之上
+。坐标轴(axis)、图例(legend)等辅助显示层以及图像层都是建立在Axes之上
 
 
 
  ## 2.2 折线图(plot)与基础绘图功能
 
-​        2.2.1 折线图绘制与保存图片
+
+
+### 2.2.1折线图绘制与保存图片
+
+**1 matplotlib.pyplot模块**
+
+matplotlib.pyplot包含了一系列类似于matlab的画图函数。它的函数**作用于当前图形((figure)的当前坐标系**
+**(axes)。**
+
+```python
+import matplotlib.pyplot as plt
+```
+
+**2 折线图绘制与显示**
+
+展现上海一周的天气比如从星期一到星期日的天气温度如下
+
+```python
+#1)创建画布(容器层)
+plt.figure()
+#2) 绘制折线图(图像层)
+plt.plot([1, 2, 3,4, 5, 6 ,7], [17,17, 18, 15, 11, 1, 13])
+#3)显示图像
+plt.show()
+```
+
+
+
+3 设置画布属性与图片保存
+
+
+
+### 2.2.2完善原始折线图1（辅助显示层）
+
+1 准备数据并画出初始折线图
+2 添加自定义X,y刻度
+3 中文显示问题解决
+4 添加网格显示
+5 添加描述信息
+
+### 2.2.3完善原始折线图2（图像层）
+
+1 多次plot
+2 设置图形风格
+
+### 2.2.4多个坐标系显示-plt.subplots(面向对象的画图方法)
+
+### 2.2.5折线图的应用场景
+
+
+
+**2.2.1 折线图绘制与保存图片**
+
 ​            3 设置画布属性与图片保存
 ​                figsize : 画布大小
 ​                dpi : dot per inch 图像的清晰度
