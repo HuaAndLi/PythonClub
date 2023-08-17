@@ -117,7 +117,7 @@ plt.show()
 
 ​			3）图像层 - 画各种图表
 
-<div><img src="D:\PythonClub\note\img\data_mining\Snipaste_2023-08-17_17-29-29.png" alt="Snipaste_2023-08-17_17-29-29" style="zoom:80%;" /></div>
+<div><img src="img\data_mining\Snipaste_2023-08-17_17-29-29.png" alt="Snipaste_2023-08-17_17-29-29" style="zoom:80%;" /></div>
 
 ·总结：
 o Canvas(画板)位于最底层，用户一般接触不到
