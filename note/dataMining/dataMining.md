@@ -1584,7 +1584,8 @@ A   1  0  23
 B   0  1  30
 C   1  0  18
 
-    狗  猪  老鼠 毛发
+狗  猪  老鼠 毛发
+
 A   1   0   0   2
 B   0   1   0   1
 C   0   0   1   1
@@ -1630,9 +1631,76 @@ one-hot编码&哑变量
 
 
 
+## 4.11 综合案例*
+
+### 4.11.1需求
+
+现在我们有一组从2006年到2016年1000部最流行的电影数据，数据来源: https://www.kaggle.com/damianpanek/sunday-eda/data
+问题1: 我们想知道这些电影数据中评分的平均分，导演的人数等信息，我们应该怎么获?
+问题2:对于这一组电影数据，如果我们想rating，runtime的分布情况，应该如何呈现数据?
+问题3: 对于这一组电影数据，如果我们希望统计电影分类(genre)的情况，应该如何处理数据?
+
+### 4.11.2实现
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 1.准备数据
+movie = pd.read_csv("./IMDB/IMDB-Movie-Data.csv")
+print(movie)
+
+# 1想知道这些电影数据中评分的平均分，导演的人数等信息，我们应该怎么获取?
+# 评分的平均分
+print(movie["Rating"].mean())
+
+# 导演的人数
+directors = movie["Director"]
+unique_directors = np.unique(directors)  # 去重
+print(unique_directors.size)
+
+# 2对于这一组电影数据，如果我们想看Rating，Runtime(Minutes)的分布情况，应该如何呈现数据? 画直方图
+ratings = movie["Rating"]
+ratings.plot(kind="hist")
+plt.show()
+# 如果希望效果更详细，直接使用plt画
+# 1.创建画布
+plt.figure(figsize=(20, 8), dpi=80)
+# 2.绘制直方图
+plt.hist(ratings, 20)
+# 修改刻度
+plt.xticks(np.linspace(ratings.min(), ratings.max(), 21))
+# 添加网格
+plt.grid(linestyle="--", alpha=0.5)
+# 3.显示图像
+plt.show()
+# runting类似，不做演示
+
+# 3对于这一组电影数据，如果我们希望统计电影分类(genre)的情况，应该如何处理数据?
+# 先统计电影类别都有哪些
+movie_genre = [i.split(",") for i in movie["Genre"]]
+print(movie_genre)
+# 拆开 去重
+movie_class = np.unique([j for i in movie_genre for j in i])
+print(movie_class)
+
+# 统计每个类别有多少个电影
+
+count = pd.DataFrame(np.zeros(shape=[1000, 20], dtype="int32"), columns=movie_class)
+print(count)
+
+#计数填表
+for i in range(1000):
+    count.loc[i, movie_genre[i]] = 1
+
+print(count.sum())
+count.sum(axis=0).sort_values(ascending=False).plot(kind="bar", figsize=(20, 9), fontsize=40, colormap="cool")
+plt.show()
+```
 
 
-# 金融数据分析与挖掘
+
 
 
 
